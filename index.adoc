@@ -1,0 +1,80 @@
+= Modeling Diffusion and Motion in Cells +++<br/>+++at the Molecular Level
+Wendell Smith
+:source-highlighter: pygments
+:pygments-style: autumn
+:revealjs_theme: simple
+:revealjs_transition: none
+:revealjs_width: 1280
+:revealjs_height: 960
+:revealjs_margin: 0.04
+:revealjs_history: false
+:revealjsdir: https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0/
+:customcss: custom.css
+:stem: latexmath
+:imagesdir: imgs
+
+== Previous work
+
+* Activity: “the ability of individual units to move actively by gaining kinetic energy from the environment”
+* Applied to flocking and herding of animals, swimming microorganisms, Janus particles [cite:howse_selfmotile_2007], etc.
+
+image::janus-h202-traj.png[Janus Particle Trajectories, 75%, title="Janus Particle Trajectories in varying concentrations of H~2~O~2~", caption="", align=center]
+
+== Cellular Constraints in Bacteria
+
+* Events are *stochastic* and *undirected*
+* Energies for single events likely do not exceed that of *ATP*, \( 20 k_B T \)
+* Events are no more rapid than *metabolism*, and do not increase cell temperature
+
+== Simulations
+
+[cols="^a,^a",grid="none",frame="none"]
+|==================================
+|
+* Simulate particles in a fluid undergoing Brownian motion
+* Add activity with stochastic kicks of approximately \( 20 k_B T \)
+* Vary density and kick frequency
+
+|
+video::f62_r20.mp4[options="autoplay,loop", float=right, width=100%]
+
+|==================================
+
+
+== Simulations
+
+[cols="^a,^a",grid="none",frame="none"]
+|==================================
+|
+video::f62_r0.mp4[options="autoplay,loop", float=left, width=100%]
+
+[discrete]
+=== Without Activity
+|
+video::f62_r20.mp4[options="autoplay,loop", float=right, width=100%]
+
+[discrete]
+=== With Activity
+|==================================
+
+== Results
+
+[cols="^a,^a",grid="none",frame="none"]
+|==================================
+|
+* At high frequencies, the kicks raise the temperature of the fluid
+* At low frequencies, the energy is rapidly absorbed by the fluid and there is no effect
+* This holds true over a range of densities and even with \( 200 k_B T \) kicks
+
+|
+image::randkick4H-MSD-cut-f0.63-R20-N40-e1000_cut.svg["", 100%, title="", caption="", align=center]
+
+|==================================
+
+== Conclusion
+
+Activity can only increase diffusion if it is *directed*, *continuous*, or at *physiologically unfeasible* frequencies or energies
+
+== Bibliography
+
+[bibliography]
