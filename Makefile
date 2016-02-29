@@ -19,5 +19,5 @@ clean:
 	rm -f index{,2}{,_local}.html index-ref.adoc
 
 local: index.html index2.html
-	sed 's_https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0_file:///usr/share/mathjax_' index.html > index_local.html
-	sed 's_https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0_file:///usr/share/mathjax_' index2.html > index2_local.html
+	sed 's_https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0_file:///usr/share/mathjax_g ; s_https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0_file:///home/wendell/code/revealjs_g' index.html > index_local.html
+	sed 's_https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.4.0_file:///usr/share/mathjax_g ; s_https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.2.0_file:///home/wendell/code/revealjs_g' index2.html > index2_local.html
