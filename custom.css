@@ -1,0 +1,19 @@
+.reveal h1 {
+  font-size: 2em;
+}
+
+.reveal h2 {
+  font-size: 1.625em;
+}
+
+.reveal h3 {
+  font-size: 1.375em;
+}
+
+.reveal h4 {
+  font-size: 1.125em;
+}
+
+.reveal h4.author {
+  font-size: 1.625em;
+}
