@@ -2,18 +2,30 @@
   font-size: 2em;
 }
 
-.reveal h2 {
+.reveal h2,
+.reveal h3 {
   font-size: 1.625em;
 }
 
-.reveal h3 {
+.reveal h4 { /* h3 */
   font-size: 1.375em;
 }
 
-.reveal h4 {
+.reveal h5 { /* h4 */
   font-size: 1.125em;
 }
 
 .reveal h4.author {
   font-size: 1.625em;
+}
+
+.reveal section img {
+  border: none;
+}
+
+/* Speed up overview: https://github.com/hakimel/reveal.js/issues/94 */
+
+.reveal.overview-animated .slides {
+  -webkit-transition: none;
+  transition: none;
 }
