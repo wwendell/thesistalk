@@ -18,12 +18,19 @@ Wendell Smith
 :stem: latexmath
 :imagesdir: imgs
 
+== Outline
+
+- The Dynamics of α-Synuclein and Disordered Proteins
+** Can we model a disordered protein without biasing it towards folding?
+** Can we use this model to understand their dynamics?
+- Dynamics near the Glass Transition
+** What are the significant factors in dynamics in the bacterial cytoplasm?
+** Nucleoid effects, activity, crowding
 
 == Chapter 1. The Dynamics of α-Synuclein
 
-* We can use a simple, 5-term model to study the conformational dynamics of α-synuclein calibrated to experiments
-* This model accurately predicts experimental results
-* The structure of α-synuclein is intermediate between a random walk and a collapsed globule
+[discrete]
+==== Can we model a disordered protein without biasing it towards folding?
 
 === α-Synuclein 
 [cols="<.^a,^.^a",grid="none",frame="none"]
@@ -58,7 +65,7 @@ image::AA-tricolor-3.png["", 100%, title="", caption="", align=center]
 
 === Previous Work
 
-[cols="^a,^a",grid="none",frame="none"]
+[cols="^a,^a",grid="none",frame="none", width=80%]
 |==================================
 |
 image::Rg-from-exp.svg["", 100%, title="", caption="", align=center]
@@ -154,7 +161,7 @@ V_{ij}^{r}=\begin{cases}
 
 === All-Atom Geometry
 
-[cols="^.^a,^.^a",grid="none",frame="none"]
+[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
 |==================================
 | All-Atom
 | PDB Structures
@@ -163,20 +170,22 @@ V_{ij}^{r}=\begin{cases}
 | image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
 |==================================
 
+[.note]
 Zhou et al. [cite:zhou_power_2012] provided atom sizes calibrated to a hard sphere model
 
 === United-Atom Geometry
 
 [.unpadded]
-[cols="^.^a,^.^a",grid="none",frame="none"]
+[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
 |==================================
 | United-Atom
 | PDB Structures
 
-| image::ramachandranAA_converted.svg["", 100%, title="", caption="", align=center]
+| image::rama09_converted.svg["", 100%, title="", caption="", align=center]
 | image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
 |==================================
 
+[.note]
 Richards et al. [cite:richards_interpretation_1974] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9
 
 === Coarse-Grained Model Geometry
@@ -393,11 +402,18 @@ image::Rij-stddevs.svg["", 80%]
 
 |====
 
+=== Conclusion
+
+
+* We can use a simple, 5-term model to study the conformational dynamics of α-synuclein calibrated to experiments
+* This model accurately predicts experimental results
+* The structure of α-synuclein is intermediate between a random walk and a collapsed globule
+
+
 == Chapter 2. Disordered Proteins
 
-* More closely investigate the hydrophobicity model
-* Apply the model to other disordered proteins
-* Show a connection between hydrophobicity and charge of residues and overall dynamics of IDPs
+[discrete]
+==== Can we extend this model to other disordered proteins, and use it to understand their dynamics?
 
 === Disordered Proteins
 
@@ -548,7 +564,25 @@ image::rgs_idps_converted.svg["", 100%]
 ^| Scaling of partial stem:[R_g] with chemical distance
 |===
 
+=== Conclusion
+
+* Hydrophobicity strongly affects the dynamics of disordered proteins
+** the specific scale used has little effect
+* This model can describe several disordered proteins
+* We can use the hydrophobicity and charge of residues to predict the overall dynamics of IDPs
+
 == Chapter 3. Dynamics near the Glass Transition
+
+[discrete]
+==== What are the significant factors in dynamics in the bacterial cytoplasm?
+
+* Many possibilities, we'll look at 3
+** Nucleoid: The tightly packed DNA in the center of the cell
+** Activity: Direct metabolic effects
+** Caging: crowding and "gridlock"
+** _Polydispersity: particles of very different sizes_
+
+=== Dynamics in Cells
 
 * Cells are full of large molecules, which may have an effect on particle dynamics
 * These macromolecules may take up anywhere from 5% to 40% of volume
@@ -557,11 +591,12 @@ image::rgs_idps_converted.svg["", 100%]
 
 === Dynamics in Cells
 
+[.unpadded]
+[cols="^.<1a,^.^1a",grid="none",frame="none",width=80%]
+|===
+2+^.<|
 Diffusion of GFP-μNS particles in the cytoplasm of _Escherichea Coli_
 
-[.unpadded]
-[cols="^.<1a,^.^1a",grid="none",frame="none"]
-|===
 2+^|
 image::parry_fig3AB.svg["", 90%]
 
@@ -598,6 +633,7 @@ image::SCdata_hist2.svg["",100%, caption="", title="60 nm diameter"]
 .3+<.^|
 * Bacterial cells do not have organelles, but they do have a nucleoid region
 * This region is highly packed with DNA, and excludes some particles
+* How does this affect dynamics?
 
 |
 image::SCdata_hist6.svg["",100%, caption="", title="95 nm diameter"]
@@ -686,6 +722,22 @@ trapped to diffusive
 
 == 3.3 Activity in the Cell Cytoplasm
 
+[.padtop]
+* Metabolic activity shows a strong effect on cellular dynamics
+** Is this a direct effect due to the chemical activity in the cytoplasm, or a secondary effect, e.g. increasing the crowding in the cell?
+
+[.unpadded.padtop]
+[cols="^.<1a,^.^1a",grid="none",frame="none",width=60%]
+|===
+2+^|
+image::parry_fig3AB.svg["", 90%]
+
+| Wild-type
+| Inactive metabolism
+
+2+| _Colors represent particle size_
+|===
+
 === Previous Work
 
 * Activity: “the ability of individual units to move actively by gaining kinetic energy from the environment”
@@ -748,6 +800,10 @@ Activity can only increase diffusion if it is *directed*, *continuous*, or at *p
 
 == 3.4 Caging
 
+How does crowding of purely exclusive-volume affect dynamics?
+
+=== Glassy Dynamics
+
 [cols="^a,^a",grid="none",frame="none"]
 |===
 |
@@ -796,7 +852,7 @@ A common measure for dynamical heterogeneities is stem:[\alpha_2]:
 \alpha_{2}\left(\Delta t\right)=\frac{3\left\langle \Delta r\left(\Delta t\right)^{4}\right\rangle }{5\left\langle \Delta r\left(\Delta t\right)^{2}\right\rangle ^{2}}-1
 ++++
 
-[small]
+[.small]
 Unrelaxed simulations are shown with dotted lines.
 
 === Conclusions
