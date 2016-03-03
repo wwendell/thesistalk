@@ -527,12 +527,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_chapter_1_the_dynamics_of_α_synuclein">Chapter 1. The Dynamics of α-Synuclein</h2>
 <div class="sectionbody">
 <h4 id="_can_we_model_a_disordered_protein_without_biasing_it_towards_folding" class="discrete">Can we model a disordered protein without biasing it towards folding?</h4>
-<div class="sect2">
+<div class="sect2 unpadded">
 <h3 id="_α_synuclein">α-Synuclein</h3>
 <table class="tableblock frame-none grid-none spread">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 75%;">
+<col style="width: 25%;">
 </colgroup>
 <tbody>
 <tr>
@@ -556,7 +556,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Intrinsically disordered protein</strong> (IDP): Known to be unfolded in solution</p>
+<p><strong>Intrinsically disordered protein</strong> (IDP)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Does not have a well-defined static structure</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>More compact than a random coil of the same length</p>
@@ -568,7 +575,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="imgs/AA-tricolor-3.png" alt="" width="70%">
+<img src="imgs/AA-tricolor-3.png" alt="" width="80%">
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/AA-tricolor-2.png" alt="" width="70%">
 </div>
 </div></div></td>
 </tr>
@@ -577,10 +589,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect2">
 <h3 id="_previous_work">Previous Work</h3>
+<table class="tableblock frame-none grid-none" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/Rg-from-exp.svg" alt="" width="100%">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/aS-P-of-Rg-Dedmon-2004.png" alt="" width="100%">
+</div>
+</div>
+<div class="paragraph fragment">
+<p>CHARMM Force Field <strong>at 523 K with NMR constraints!</strong></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph fragment">
+<p>All-Atom Models are calibrated for folded proteins, and are biased toward folding.</p>
+</div>
+<h3 id="_can_we_simulate_an_idp_with_a_simple_model_br_and_arrive_at_realistic_results" class="discrete fragment">Can we simulate an IDP with a simple model<br/>and arrive at realistic results?</h3>
+</div>
+<div class="sect2">
+<h3 id="_previous_work_2">Previous Work</h3>
 <table class="tableblock frame-none grid-none spread">
 <colgroup>
-<col style="width: 66%;">
-<col style="width: 33%;">
+<col style="width: 62%;">
+<col style="width: 37%;">
 </colgroup>
 <tbody>
 <tr>
@@ -623,42 +665,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-center valign-bottom"><div><div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="imgs/AA-tricolor-3.png" alt="" width="100%">
+<img src="imgs/AA-tricolor-3.png" alt="" width="60%">
+</div>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/AA-tricolor-springs.svg" alt="" width="80%">
 </div>
 </div></div></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect2">
-<h3 id="_previous_work_2">Previous Work</h3>
-<table class="tableblock frame-none grid-none" style="width: 80%;">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/Rg-from-exp.svg" alt="" width="100%">
-</div>
-</div></div></td>
-<td class="tableblock halign-center valign-top"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/aS-P-of-Rg-Dedmon-2004.png" alt="" width="100%">
-</div>
-</div>
-<div class="paragraph">
-<p>CHARMM Force Field <strong>at 523 K with NMR constraints!</strong></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>All-Atom Models are calibrated for folded proteins, and are biased toward folding.</p>
-</div>
-<h3 id="_can_we_simulate_an_idp_with_a_simple_model_br_and_arrive_at_realistic_results" class="discrete">Can we simulate an IDP with a simple model<br/>and arrive at realistic results?</h3>
 </div>
 </div>
 </div>
@@ -667,7 +684,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_molecular_dynamics_simulations">Molecular Dynamics Simulations</h3>
-<div class="olist arabic">
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 66%;">
+<col style="width: 33%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="olist arabic">
 <ol class="arabic">
 <li>
 <p>Start with particles at some positions \(\vec{r}_i\), with velocities \(\vec{v}_i\)</p>
@@ -698,7 +722,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 </ol>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="videoblock">
+<div class="content">
+<video src="imgs/f62_r0.mp4" width="100%" autoplay controls loop>
+Your browser does not support the video tag.
+</video>
 </div>
+</div>
+<div class="videoblock">
+<div class="content">
+<video src="imgs/idps_UA.mp4" width="120%" autoplay controls loop>
+Your browser does not support the video tag.
+</video>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_molecular_dynamics_simulations_2">Molecular Dynamics Simulations</h3>
@@ -713,6 +754,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 \[\frac{d\vec{v}_{i}}{dt}=-\frac{1}{m_{i}}\vec{\nabla}U-\gamma \vec{v}_{i}+\sqrt{\frac{2\gamma k_{B}T}{m_i}}\Gamma\left(t\right)\]
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>\(-\gamma \vec{v}_{i}\) is a drag term</p>
+</li>
+<li>
+<p>\(\Gamma\left(t\right)\) provides a random force</p>
+</li>
+</ul>
 </div>
 </li>
 <li>
@@ -762,249 +813,62 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_all_atom_and_united_atom_geometry">All-Atom and United-Atom Geometry</h3>
+<h3 id="_building_a_model_2">Building a Model</h3>
 <table class="tableblock frame-none grid-none spread unpadded">
-<colgroup>
-<col style="width: 60%;">
-<col style="width: 40%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="ulist">
-<ul>
-<li>
-<p>Bond lengths and angles held constant (with a stiff spring)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>angles and lengths taken from an average over 800 known crystal structures</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>"Atoms" treated as hard-spheres that cannot overlap</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Repulsive Lennard-Jones potential</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/LJ-repulsive-new.svg" alt="" width="100%">
-</div>
-</div>
-<div class="paragraph small">
-<p>2 Carbon atoms with centers at a distance \(r_{ij}\) from each other</p>
-</div>
-<small>
-\[
-V_{ij}^{r}=\begin{cases}
-4\epsilon_{r}\left[ \left( \frac{ \sigma^{r}}{r_{ij}} \right)^{12} - \left(\frac{\sigma^{r}}{r_{ij}} \right)^{6}\right] + \epsilon_{r} & r_{ij} < 2^{1/6} \sigma^{r}\\
-0 & r_{ij} > 2^{1/6} \sigma^{r}
-\end{cases}
-\]
-</small></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_all_atom_geometry">All-Atom Geometry</h3>
-<table class="tableblock frame-none grid-none" style="width: 80%;">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
-<p>All-Atom</p>
-</div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
-<p>PDB Structures</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/ramachandranAA_converted.svg" alt="" width="100%">
-</div>
-</div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/rama-Dunbrack-scatter_idpconvert.svg" alt="" width="85%">
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph note">
-<p>Zhou et al. [<a href="#zhou_power_2012">2</a>] provided atom sizes calibrated to a hard sphere model</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_united_atom_geometry">United-Atom Geometry</h3>
-<table class="tableblock frame-none grid-none unpadded" style="width: 80%;">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
-<p>United-Atom</p>
-</div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
-<p>PDB Structures</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/rama09_converted.svg" alt="" width="100%">
-</div>
-</div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/rama-Dunbrack-scatter_idpconvert.svg" alt="" width="85%">
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph note">
-<p>Richards et al. [<a href="#richards_interpretation_1974">3</a>] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_coarse_grained_model_geometry">Coarse-Grained Model Geometry</h3>
-<table class="tableblock frame-none grid-none spread">
 <colgroup>
 <col style="width: 66%;">
 <col style="width: 33%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<td class="tableblock halign-center valign-middle"><div><div class="ulist">
 <ul>
 <li>
-<p>Each monomer represents one residue — many atoms</p>
+<p>Molecular Geometry</p>
 <div class="ulist">
 <ul>
 <li>
-<p>"Bond" lengths and angles</p>
-</li>
-<li>
-<p>Dihedral angles</p>
+<p>Bond lengths, bond angles, and a dihedral angle</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><em>Don&#8217;t calibrate to the crystal structures!</em></p>
+<p>Sterics</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Atoms can&#8217;t overlap</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p>Calibrated to united-atom and all-atom geometry</p>
+<p>Electrostatics</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Some residues are charged</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Hydrophobicity</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Some residues do not bind with water</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div></div></td>
 <td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="imgs/aS-CG-visual_converted.svg" alt="" width="100%">
+<img src="imgs/aS-AA-visual_converted.svg" alt="" width="100%">
 </div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_electrostatics">Electrostatics</h3>
-<div class="stemblock">
-<div class="content">
-\[V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{ - \frac{r_{ij}}{\ell}}\]
-</div>
-</div>
-<table class="tableblock frame-none grid-none spread">
-<colgroup>
-<col style="width: 60%;">
-<col style="width: 40%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="ulist">
-<ul>
-<li>
-<p>\(\epsilon\) is the permittivity of water</p>
-</li>
-<li>
-<p>\(e^{-\frac{r_{ij}}{\ell}}\) gives the Coulomb screening, because we have a 150 mM salt concentration</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Debye length \(\ell = 9\,\textrm{Å}\)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Use partial charges for atoms</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-center valign-top"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/ES-potential-new.svg" alt="" width="100%">
-</div>
-<div class="title">Screened Coulomb Potential</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_hydrophobicity">Hydrophobicity</h3>
-<div class="stemblock">
-<div class="content">
-\[V_{ij}^{a}=\begin{cases}
--\epsilon_{a}\lambda_{ij} &amp; R_{ij}&gt;2^{1/6}\sigma^{a}\\
-4\epsilon_{a}\lambda_{ij}\left[\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}\right] &amp; R_{ij}&lt;2^{1/6}\sigma^{a}
-\end{cases}\]
-</div>
-</div>
-<table class="tableblock frame-none grid-none spread unpadded">
-<colgroup>
-<col style="width: 60%;">
-<col style="width: 40%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="ulist">
-<ul>
-<li>
-<p>Lennard-Jones potential</p>
-</li>
-<li>
-<p>\(\epsilon_{a}\) is a parameter we need to determine</p>
-</li>
-<li>
-<p>\(\lambda_{ij}\) is the relative hydrophobicity</p>
-</li>
-<li>
-<p>\(\sigma_{a}=4.8\,\textrm{Å}\) is the average size of a residue</p>
-</li>
-</ul>
-</div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
-<div class="content">
-<img src="imgs/LJ-attract-new.svg" alt="" width="100%">
-</div>
-<div class="title">Hydrophobicity Potential</div>
 </div></div></td>
 </tr>
 </tbody>
@@ -1417,7 +1281,7 @@ versus the hydrophobicity per residue <em>H</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Uversky et al. [<a href="#uversky_why_2000">4</a>] showed that charge and hydrophobicity were predictors of disordered proteins</p>
+<p>Uversky et al. [<a href="#uversky_why_2000">2</a>] showed that charge and hydrophobicity were predictors of disordered proteins</p>
 </li>
 <li>
 <p>They drew a line at \(Q=2.785H-1.151\)</p>
@@ -1521,8 +1385,8 @@ versus the hydrophobicity per residue <em>H</em></p>
 <td class="tableblock halign-left valign-top"><div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph small">
 <p><strong>Scales</strong><br>
-<strong>1-</strong> Kyte-Doolittle [<a href="#Kyte1982">5</a>]<br>
-<strong>2-</strong> Monera [<a href="#monera_relationship_1995">6</a>]<br>
+<strong>1-</strong> Kyte-Doolittle [<a href="#Kyte1982">3</a>]<br>
+<strong>2-</strong> Monera [<a href="#monera_relationship_1995">4</a>]<br>
 <strong>3-</strong> Average of 7 scales</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph small">
@@ -2036,7 +1900,7 @@ trapped to diffusive</p>
 <p>Activity: “the ability of individual units to move actively by gaining kinetic energy from the environment”</p>
 </li>
 <li>
-<p>Applied to flocking and herding of animals, swimming microorganisms, Janus particles [<a href="#howse_selfmotile_2007">7</a>], etc.</p>
+<p>Applied to flocking and herding of animals, swimming microorganisms, Janus particles [<a href="#howse_selfmotile_2007">5</a>], etc.</p>
 </li>
 </ul>
 </div>
@@ -2353,12 +2217,6 @@ Your browser does not support the video tag.
 <p><a id="Mittag2007"></a>T. Mittag and J. D. Forman-Kay, Current Opinion In Structural Biology <strong>17</strong>, 3 (2007).</p>
 </li>
 <li>
-<p><a id="zhou_power_2012"></a>A. Q. Zhou, C. S. O&#8217;Hern, and L. Regan, Biophysical Journal <strong>102</strong>, 2345 (2012).</p>
-</li>
-<li>
-<p><a id="richards_interpretation_1974"></a>F. Richards, Journal Of Molecular Biology <strong>82</strong>, 1 (1974).</p>
-</li>
-<li>
 <p><a id="uversky_why_2000"></a>V. N. Uversky, J. R. Gillespie, and A. L. Fink, Proteins: Structure, Function, And Bioinformatics <strong>41</strong>, 415 (2000).</p>
 </li>
 <li>
@@ -2370,15 +2228,275 @@ Your browser does not support the video tag.
 <li>
 <p><a id="howse_selfmotile_2007"></a>J. R. Howse, R. A. L. Jones, A. J. Ryan, T. Gough, R. Vafabakhsh, and R. Golestanian, Physical Review Letters <strong>99</strong>, 048102 (2007).</p>
 </li>
+<li>
+<p><a id="zhou_power_2012"></a>A. Q. Zhou, C. S. O&#8217;Hern, and L. Regan, Biophysical Journal <strong>102</strong>, 2345 (2012).</p>
+</li>
+<li>
+<p><a id="richards_interpretation_1974"></a>F. Richards, Journal Of Molecular Biology <strong>82</strong>, 1 (1974).</p>
+</li>
 </ol>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extra_slides">Extra Slides</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_all_atom_and_united_atom_geometry">All-Atom and United-Atom Geometry</h3>
+<table class="tableblock frame-none grid-none spread unpadded">
+<colgroup>
+<col style="width: 60%;">
+<col style="width: 40%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<ul>
+<li>
+<p>Bond lengths and angles held constant (with a stiff spring)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>angles and lengths taken from an average over 800 known crystal structures</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>"Atoms" treated as hard-spheres that cannot overlap</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Repulsive Lennard-Jones potential</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/LJ-repulsive-new.svg" alt="" width="100%">
+</div>
+</div>
+<div class="paragraph small">
+<p>2 Carbon atoms with centers at a distance \(r_{ij}\) from each other</p>
+</div>
+<small>
+\[
+V_{ij}^{r}=\begin{cases}
+4\epsilon_{r}\left[ \left( \frac{ \sigma^{r}}{r_{ij}} \right)^{12} - \left(\frac{\sigma^{r}}{r_{ij}} \right)^{6}\right] + \epsilon_{r} & r_{ij} < 2^{1/6} \sigma^{r}\\
+0 & r_{ij} > 2^{1/6} \sigma^{r}
+\end{cases}
+\]
+</small></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_all_atom_geometry">All-Atom Geometry</h3>
+<table class="tableblock frame-none grid-none" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
+<p>All-Atom</p>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
+<p>PDB Structures</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/ramachandranAA_converted.svg" alt="" width="100%">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/rama-Dunbrack-scatter_idpconvert.svg" alt="" width="85%">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph note">
+<p>Zhou et al. [<a href="#zhou_power_2012">6</a>] provided atom sizes calibrated to a hard sphere model</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_united_atom_geometry">United-Atom Geometry</h3>
+<table class="tableblock frame-none grid-none unpadded" style="width: 80%;">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
+<p>United-Atom</p>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
+<p>PDB Structures</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/rama09_converted.svg" alt="" width="100%">
+</div>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/rama-Dunbrack-scatter_idpconvert.svg" alt="" width="85%">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph note">
+<p>Richards et al. [<a href="#richards_interpretation_1974">7</a>] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_coarse_grained_model_geometry">Coarse-Grained Model Geometry</h3>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 66%;">
+<col style="width: 33%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<ul>
+<li>
+<p>Each monomer represents one residue — many atoms</p>
+<div class="ulist">
+<ul>
+<li>
+<p>"Bond" lengths and angles</p>
+</li>
+<li>
+<p>Dihedral angles</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Don&#8217;t calibrate to the crystal structures!</em></p>
+</li>
+<li>
+<p>Calibrated to united-atom and all-atom geometry</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/aS-CG-visual_converted.svg" alt="" width="100%">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_electrostatics">Electrostatics</h3>
+<div class="stemblock">
+<div class="content">
+\[V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{ - \frac{r_{ij}}{\ell}}\]
+</div>
+</div>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 60%;">
+<col style="width: 40%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<ul>
+<li>
+<p>\(\epsilon\) is the permittivity of water</p>
+</li>
+<li>
+<p>\(e^{-\frac{r_{ij}}{\ell}}\) gives the Coulomb screening, because we have a 150 mM salt concentration</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Debye length \(\ell = 9\,\textrm{Å}\)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Use partial charges for atoms</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-top"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/ES-potential-new.svg" alt="" width="100%">
+</div>
+<div class="title">Screened Coulomb Potential</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hydrophobicity">Hydrophobicity</h3>
+<div class="stemblock">
+<div class="content">
+\[V_{ij}^{a}=\begin{cases}
+-\epsilon_{a}\lambda_{ij} &amp; R_{ij}&gt;2^{1/6}\sigma^{a}\\
+4\epsilon_{a}\lambda_{ij}\left[\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}\right] &amp; R_{ij}&lt;2^{1/6}\sigma^{a}
+\end{cases}\]
+</div>
+</div>
+<table class="tableblock frame-none grid-none spread unpadded">
+<colgroup>
+<col style="width: 60%;">
+<col style="width: 40%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<ul>
+<li>
+<p>Lennard-Jones potential</p>
+</li>
+<li>
+<p>\(\epsilon_{a}\) is a parameter we need to determine</p>
+</li>
+<li>
+<p>\(\lambda_{ij}\) is the relative hydrophobicity</p>
+</li>
+<li>
+<p>\(\sigma_{a}=4.8\,\textrm{Å}\) is the average size of a residue</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="imgs/LJ-attract-new.svg" alt="" width="100%">
+</div>
+<div class="title">Hydrophobicity Potential</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-03-03 09:33:28 EST
+Last updated 2016-03-03 13:40:13 EST
 </div>
 </div>
 <script type="text/x-mathjax-config">
