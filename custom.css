@@ -21,6 +21,21 @@
 
 .reveal section img {
   border: none;
+  margin: 0 0 0 0;
+}
+
+.reveal .padded th,
+.reveal .padded td {
+  padding: 0.6em 0.5em 0.6em 0.5em;
+}
+
+.reveal .unpadded th,
+.reveal .unpadded td {
+  padding: 0 0 0 0;
+}
+
+.reveal .tight {
+  line-height: 1em;
 }
 
 /* Speed up overview: https://github.com/hakimel/reveal.js/issues/94 */
