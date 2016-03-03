@@ -1,3 +1,7 @@
+.reveal {
+  font-size: 32px;
+}
+
 .reveal h1 {
   font-size: 2em;
 }
@@ -8,6 +12,7 @@
 }
 
 .reveal h4 { /* h3 */
+  margin-top: 1.6em;
   font-size: 1.375em;
 }
 
@@ -32,6 +37,20 @@
 .reveal .unpadded th,
 .reveal .unpadded td {
   padding: 0 0 0 0;
+}
+
+.reveal table.padtop,
+.reveal div.padtop {
+  margin-top: 1.6em;
+}
+
+.note {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+.canceled {
+  text-decoration: line-through;
 }
 
 .reveal .tight {
