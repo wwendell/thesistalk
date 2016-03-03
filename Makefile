@@ -38,6 +38,8 @@ copies: Makefile converts thesis.bib madeimgs/* | imgs
 	cp -uv ~/work/idp/imgs/{LJ-repulsive,LJ-attract,ES-potential}-new.svg imgs/
 	cp -uv ~/work/idp/imgs/figs.mp4 imgs/idps_UA.mp4
 	
+	cp -uv ~/work/cls/6S-Biophysics/lecture13/monomers.mp4 imgs/
+	
 	cp -uv ~/work/idp/imgs/aS-Pairs-{54-72,72-92,9-33,54-92,92-130,33-72,9-54,72-130,9-72,54-130,33-130,9-130}.png imgs/
 	
 	cp -uv ~/work/papers/thesis/imgs/n600_r1.3_m0.1_s9_P1e-6.png imgs/
