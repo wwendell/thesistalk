@@ -32,36 +32,25 @@ Wendell Smith
 [discrete]
 ==== Can we model a disordered protein without biasing it towards folding?
 
+[.unpadded]
 === α-Synuclein 
-[cols="<.^a,^.^a",grid="none",frame="none"]
+[cols="<.^3a,^.^1a",grid="none",frame="none"]
 |==================================
 |
 * *Function*
 ** Related to cellular signaling and control
 ** Aggregation of α-synuclein linked to Parkinson's disease and Lewy body dementia
 * *Structure*
-** *Intrinsically disordered protein* (IDP): Known to be unfolded in solution
+** *Intrinsically disordered protein* (IDP)
+*** Does not have a well-defined static structure
 ** More compact than a random coil of the same length 
-|
-image::AA-tricolor-3.png["", 70%, title="", caption="", align=center]
-|==================================
 
-=== Previous Work
-
-[cols="<.^2a,^.>1a",grid="none",frame="none"]
-|==================================
 |
-* AMBER and CHARMM
-** Standard protein force fields calibrated with crystal structures
-** Tends to bias towards folding [cite:Mittag2007]
-* ABSINTH, MARTINI
-** General and coarse-grained
-* Constrained models
-** Based on specific experimental data
-|
-image::AA-tricolor-3.png["", 100%, title="", caption="", align=center]
-|==================================
+image::AA-tricolor-3.png["", 80%, title="", caption="", align=center]
 
+image::AA-tricolor-2.png["", 70%, title="", caption="", align=center]
+
+|==================================
 
 === Previous Work
 
@@ -72,18 +61,41 @@ image::Rg-from-exp.svg["", 100%, title="", caption="", align=center]
 |
 image::aS-P-of-Rg-Dedmon-2004.png["", 100%, title="", caption="", align=center]
 
+[.fragment]
 CHARMM Force Field *at 523 K with NMR constraints!*
 |==================================
 
+[.fragment]
 All-Atom Models are calibrated for folded proteins, and are biased toward folding.
 
-[discrete]
+[discrete,role="fragment"]
 === Can we simulate an IDP with a simple model+++<br/>+++and arrive at realistic results?
+
+=== Previous Work
+
+[cols="<.^5a,^.>3a",grid="none",frame="none"]
+|==================================
+|
+* AMBER and CHARMM
+** Standard protein force fields calibrated with crystal structures
+** Tends to bias towards folding [cite:Mittag2007]
+* ABSINTH, MARTINI
+** General and coarse-grained
+* Constrained models
+** Based on specific experimental data
+|
+image::AA-tricolor-3.png["", 60%, title="", caption="", align=center]
+
+image::AA-tricolor-springs.svg["", 80%, title="", caption="", align=center]
+|==================================
 
 == 1.2 Methods
 
 === Molecular Dynamics Simulations
 
+[cols="^.^2a,^.^1a",grid="none",frame="none"]
+|==================================
+|
 . Start with particles at some positions stem:[\vec{r}_i], with velocities stem:[\vec{v}_i]
 . Calculate the forces on each particle, stem:[\vec{f}_i]
 . Integrate numerically:
@@ -105,6 +117,14 @@ All-Atom Models are calibrated for folded proteins, and are biased toward foldin
 \end{align*}
 ++++
 
+|
+
+video::f62_r0.mp4[options="autoplay,loop", width=100%]
+
+video::idps_UA.mp4[options="autoplay,loop", width=120%]
+
+|==================================
+
 === Molecular Dynamics Simulations
 
 * Velocity Verlet for time reversibility and better energy conservation
@@ -114,6 +134,8 @@ All-Atom Models are calibrated for folded proteins, and are biased toward foldin
 ++++
 \frac{d\vec{v}_{i}}{dt}=-\frac{1}{m_{i}}\vec{\nabla}U-\gamma \vec{v}_{i}+\sqrt{\frac{2\gamma k_{B}T}{m_i}}\Gamma\left(t\right)
 ++++
+** stem:[-\gamma \vec{v}_{i}] is a drag term
+** stem:[\Gamma\left(t\right)] provides a random force
 * Neighbor lists increase performance
 
 === Building a Model
@@ -130,116 +152,25 @@ All-Atom Models are calibrated for folded proteins, and are biased toward foldin
 | image::aS-CG-visual_converted.svg["", 100%, title="", caption="", align=center]
 |==================================
 
-=== All-Atom and United-Atom Geometry
+=== Building a Model
+
+
 
 [.unpadded]
-[cols="<.^3a,^.^2a",grid="none",frame="none"]
+[cols="^.^2a,^.^1a",grid="none",frame="none"]
 |==================================
 |
-* Bond lengths and angles held constant (with a stiff spring)
-** angles and lengths taken from an average over 800 known crystal structures
-* "Atoms" treated as hard-spheres that cannot overlap
-** Repulsive Lennard-Jones potential
+* Molecular Geometry
+** Bond lengths, bond angles, and a dihedral angle
+* Sterics
+** Atoms can't overlap
+* Electrostatics
+** Some residues are charged
+* Hydrophobicity
+** Some residues do not bind with water
 
-| image::LJ-repulsive-new.svg["", 100%, title="", caption="", align=center]
+| image::aS-AA-visual_converted.svg["", 100%, title="", caption="", align=center]
 
-[.small]
-2 Carbon atoms with centers at a distance stem:[r_{ij}] from each other
-
-++++
-<small>
-\[
-V_{ij}^{r}=\begin{cases}
-4\epsilon_{r}\left[ \left( \frac{ \sigma^{r}}{r_{ij}} \right)^{12} - \left(\frac{\sigma^{r}}{r_{ij}} \right)^{6}\right] + \epsilon_{r} & r_{ij} < 2^{1/6} \sigma^{r}\\
-0 & r_{ij} > 2^{1/6} \sigma^{r}
-\end{cases}
-\]
-</small>
-++++
-
-|==================================
-
-=== All-Atom Geometry
-
-[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
-|==================================
-| All-Atom
-| PDB Structures
-
-| image::ramachandranAA_converted.svg["", 100%, title="", caption="", align=center]
-| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
-|==================================
-
-[.note]
-Zhou et al. [cite:zhou_power_2012] provided atom sizes calibrated to a hard sphere model
-
-=== United-Atom Geometry
-
-[.unpadded]
-[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
-|==================================
-| United-Atom
-| PDB Structures
-
-| image::rama09_converted.svg["", 100%, title="", caption="", align=center]
-| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
-|==================================
-
-[.note]
-Richards et al. [cite:richards_interpretation_1974] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9
-
-=== Coarse-Grained Model Geometry
-
-[cols="<.^2a,^.^1a",grid="none",frame="none"]
-|==================================
-| 
-* Each monomer represents one residue — many atoms
-** "Bond" lengths and angles
-** Dihedral angles
-* _Don't calibrate to the crystal structures!_
-* Calibrated to united-atom and all-atom geometry
-
-| image::aS-CG-visual_converted.svg["", 100%, title="", caption="", align=center]
-|==================================
-
-=== Electrostatics
-
-[latexmath]
-++++
-V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{ - \frac{r_{ij}}{\ell}}
-++++
-
-[cols="<.^3a,^2a",grid="none",frame="none"]
-|==================================
-|
-* stem:[\epsilon] is the permittivity of water
-* stem:[e^{-\frac{r_{ij}}{\ell}}] gives the Coulomb screening, because we have a 150 mM salt concentration
-** Debye length stem:[\ell = 9\,\textrm{Å}]
-* Use partial charges for atoms
-
-| image::ES-potential-new.svg["", 100%, title="Screened Coulomb Potential", caption="", align=center]
-|==================================
-
-=== Hydrophobicity
-
-[latexmath]
-++++
-V_{ij}^{a}=\begin{cases}
--\epsilon_{a}\lambda_{ij} & R_{ij}>2^{1/6}\sigma^{a}\\
-4\epsilon_{a}\lambda_{ij}\left[\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}\right] & R_{ij}<2^{1/6}\sigma^{a}
-\end{cases}
-++++
-
-[.unpadded]
-[cols="<.^3a,^.^2a",grid="none",frame="none"]
-|==================================
-|
-* Lennard-Jones potential
-* stem:[\epsilon_{a}] is a parameter we need to determine
-* stem:[\lambda_{ij}] is the relative hydrophobicity
-* stem:[\sigma_{a}=4.8\,\textrm{Å}] is the average size of a residue
-
-| image::LJ-attract-new.svg["", 100%, title="Hydrophobicity Potential", caption="", align=center]
 |==================================
 
 === Full Model
@@ -875,3 +806,121 @@ Unrelaxed simulations are shown with dotted lines.
 === Bibliography
 
 [bibliography]
+
+== Extra Slides
+
+
+
+
+
+=== All-Atom and United-Atom Geometry
+
+[.unpadded]
+[cols="<.^3a,^.^2a",grid="none",frame="none"]
+|==================================
+|
+* Bond lengths and angles held constant (with a stiff spring)
+** angles and lengths taken from an average over 800 known crystal structures
+* "Atoms" treated as hard-spheres that cannot overlap
+** Repulsive Lennard-Jones potential
+
+| image::LJ-repulsive-new.svg["", 100%, title="", caption="", align=center]
+
+[.small]
+2 Carbon atoms with centers at a distance stem:[r_{ij}] from each other
+
+++++
+<small>
+\[
+V_{ij}^{r}=\begin{cases}
+4\epsilon_{r}\left[ \left( \frac{ \sigma^{r}}{r_{ij}} \right)^{12} - \left(\frac{\sigma^{r}}{r_{ij}} \right)^{6}\right] + \epsilon_{r} & r_{ij} < 2^{1/6} \sigma^{r}\\
+0 & r_{ij} > 2^{1/6} \sigma^{r}
+\end{cases}
+\]
+</small>
+++++
+
+|==================================
+
+=== All-Atom Geometry
+
+[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
+|==================================
+| All-Atom
+| PDB Structures
+
+| image::ramachandranAA_converted.svg["", 100%, title="", caption="", align=center]
+| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
+|==================================
+
+[.note]
+Zhou et al. [cite:zhou_power_2012] provided atom sizes calibrated to a hard sphere model
+
+=== United-Atom Geometry
+
+[.unpadded]
+[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
+|==================================
+| United-Atom
+| PDB Structures
+
+| image::rama09_converted.svg["", 100%, title="", caption="", align=center]
+| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
+|==================================
+
+[.note]
+Richards et al. [cite:richards_interpretation_1974] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9
+
+=== Coarse-Grained Model Geometry
+
+[cols="<.^2a,^.^1a",grid="none",frame="none"]
+|==================================
+| 
+* Each monomer represents one residue — many atoms
+** "Bond" lengths and angles
+** Dihedral angles
+* _Don't calibrate to the crystal structures!_
+* Calibrated to united-atom and all-atom geometry
+
+| image::aS-CG-visual_converted.svg["", 100%, title="", caption="", align=center]
+|==================================
+
+=== Electrostatics
+
+[latexmath]
+++++
+V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{ - \frac{r_{ij}}{\ell}}
+++++
+
+[cols="<.^3a,^2a",grid="none",frame="none"]
+|==================================
+|
+* stem:[\epsilon] is the permittivity of water
+* stem:[e^{-\frac{r_{ij}}{\ell}}] gives the Coulomb screening, because we have a 150 mM salt concentration
+** Debye length stem:[\ell = 9\,\textrm{Å}]
+* Use partial charges for atoms
+
+| image::ES-potential-new.svg["", 100%, title="Screened Coulomb Potential", caption="", align=center]
+|==================================
+
+=== Hydrophobicity
+
+[latexmath]
+++++
+V_{ij}^{a}=\begin{cases}
+-\epsilon_{a}\lambda_{ij} & R_{ij}>2^{1/6}\sigma^{a}\\
+4\epsilon_{a}\lambda_{ij}\left[\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}\right] & R_{ij}<2^{1/6}\sigma^{a}
+\end{cases}
+++++
+
+[.unpadded]
+[cols="<.^3a,^.^2a",grid="none",frame="none"]
+|==================================
+|
+* Lennard-Jones potential
+* stem:[\epsilon_{a}] is a parameter we need to determine
+* stem:[\lambda_{ij}] is the relative hydrophobicity
+* stem:[\sigma_{a}=4.8\,\textrm{Å}] is the average size of a residue
+
+| image::LJ-attract-new.svg["", 100%, title="Hydrophobicity Potential", caption="", align=center]
+|==================================
