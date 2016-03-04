@@ -813,62 +813,154 @@ Your browser does not support the video tag.
 </table>
 </div>
 <div class="sect2">
-<h3 id="_building_a_model_2">Building a Model</h3>
-<table class="tableblock frame-none grid-none spread unpadded">
+<h3 id="_building_a_model_geometry">Building a Model: Geometry</h3>
+<table class="tableblock frame-none grid-all spread">
 <colgroup>
-<col style="width: 66%;">
-<col style="width: 33%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-center valign-middle"><div><div class="ulist">
-<ul>
-<li>
-<p>Molecular Geometry</p>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle" colspan="2"><p class="tableblock"><strong>All-Atom and United-Atom</strong></p></td>
+<td class="tableblock halign-left valign-middle" colspan="2"><p class="tableblock"><strong>Coarse-Grained</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><em>Potential</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><em>Parameters</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><em>Potential</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><em>Parameters</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Bond Lengths and Angles</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Stiff Spring</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>PDB Data</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Soft Spring</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>AA and UA probabilities</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Dihedral Angles</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>ω only</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>ω = π</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>\(\sum a_{n}\cos^{n}\phi\)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>AA and UA probabilities</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Atom / Bead Sizes</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Lennard-Jones Repulsive (WCA)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Refs. [<a href="#zhou_power_2012">2</a>] and [<a href="#richards_interpretation_1974">3</a>]</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Lennard-Jones Repulsive (WCA)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>\(\sigma=4.8\,Å\), from \(R_{g}\) of residues</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_building_a_model_long_range_interactions">Building a Model: Long-Range Interactions</h3>
+<table class="tableblock frame-none grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Electrostatics</th>
+<th class="tableblock halign-left valign-middle">Hydrophobicity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="stemblock">
+<div class="content">
+\[V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{-\frac{r_{ij}}{\ell}}\]
+</div>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Bond lengths, bond angles, and a dihedral angle</p>
-</li>
-</ul>
-</div>
+<p>Coulomb interaction</p>
 </li>
 <li>
-<p>Sterics</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Atoms can&#8217;t overlap</p>
-</li>
-</ul>
-</div>
+<p>Debye screening</p>
 </li>
 <li>
-<p>Electrostatics</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Some residues are charged</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Hydrophobicity</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Some residues do not bind with water</p>
-</li>
-</ul>
-</div>
+<p>Uses partial charges</p>
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock" style="text-align: center">
+<td class="tableblock halign-left valign-middle"><div><div class="stemblock">
 <div class="content">
-<img src="imgs/aS-AA-visual_converted.svg" alt="" width="100%">
+\[V_{ij}^{a}	\propto\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}	R_{ij}&gt;2^{\frac{1}{6}}\sigma^{a}\]
 </div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Attractive Lennard-Jones potential between \mathsf{C_{\alpha}} atoms</p>
+</li>
+<li>
+<p>Relative hydrophobicities from tables</p>
+</li>
+<li>
+<p>Overall energy scale <strong>unknown</strong></p>
+</li>
+</ul>
+</div>
+<div class="ulist fragment alert">
+<ul>
+<li>
+<p>Define \(\alpha\equiv\frac{\textsf{Hydrophobicity Energy}}{\textsf{Electrostatics Energy}}\)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>a unitless free parameter</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div></div></td>
 </tr>
 </tbody>
@@ -1281,7 +1373,7 @@ versus the hydrophobicity per residue <em>H</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Uversky et al. [<a href="#uversky_why_2000">2</a>] showed that charge and hydrophobicity were predictors of disordered proteins</p>
+<p>Uversky et al. [<a href="#uversky_why_2000">4</a>] showed that charge and hydrophobicity were predictors of disordered proteins</p>
 </li>
 <li>
 <p>They drew a line at \(Q=2.785H-1.151\)</p>
@@ -1385,8 +1477,8 @@ versus the hydrophobicity per residue <em>H</em></p>
 <td class="tableblock halign-left valign-top"><div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph small">
 <p><strong>Scales</strong><br>
-<strong>1-</strong> Kyte-Doolittle [<a href="#Kyte1982">3</a>]<br>
-<strong>2-</strong> Monera [<a href="#monera_relationship_1995">4</a>]<br>
+<strong>1-</strong> Kyte-Doolittle [<a href="#Kyte1982">5</a>]<br>
+<strong>2-</strong> Monera [<a href="#monera_relationship_1995">6</a>]<br>
 <strong>3-</strong> Average of 7 scales</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph small">
@@ -1900,7 +1992,7 @@ trapped to diffusive</p>
 <p>Activity: “the ability of individual units to move actively by gaining kinetic energy from the environment”</p>
 </li>
 <li>
-<p>Applied to flocking and herding of animals, swimming microorganisms, Janus particles [<a href="#howse_selfmotile_2007">5</a>], etc.</p>
+<p>Applied to flocking and herding of animals, swimming microorganisms, Janus particles [<a href="#howse_selfmotile_2007">7</a>], etc.</p>
 </li>
 </ul>
 </div>
@@ -2195,6 +2287,9 @@ Your browser does not support the video tag.
 <div class="ulist">
 <ul>
 <li>
+<p>My Committee!</p>
+</li>
+<li>
 <p>Corey, Mark, and the O&#8217;Hern Lab</p>
 </li>
 <li>
@@ -2217,6 +2312,12 @@ Your browser does not support the video tag.
 <p><a id="Mittag2007"></a>T. Mittag and J. D. Forman-Kay, Current Opinion In Structural Biology <strong>17</strong>, 3 (2007).</p>
 </li>
 <li>
+<p><a id="zhou_power_2012"></a>A. Q. Zhou, C. S. O&#8217;Hern, and L. Regan, Biophysical Journal <strong>102</strong>, 2345 (2012).</p>
+</li>
+<li>
+<p><a id="richards_interpretation_1974"></a>F. Richards, Journal Of Molecular Biology <strong>82</strong>, 1 (1974).</p>
+</li>
+<li>
 <p><a id="uversky_why_2000"></a>V. N. Uversky, J. R. Gillespie, and A. L. Fink, Proteins: Structure, Function, And Bioinformatics <strong>41</strong>, 415 (2000).</p>
 </li>
 <li>
@@ -2227,12 +2328,6 @@ Your browser does not support the video tag.
 </li>
 <li>
 <p><a id="howse_selfmotile_2007"></a>J. R. Howse, R. A. L. Jones, A. J. Ryan, T. Gough, R. Vafabakhsh, and R. Golestanian, Physical Review Letters <strong>99</strong>, 048102 (2007).</p>
-</li>
-<li>
-<p><a id="zhou_power_2012"></a>A. Q. Zhou, C. S. O&#8217;Hern, and L. Regan, Biophysical Journal <strong>102</strong>, 2345 (2012).</p>
-</li>
-<li>
-<p><a id="richards_interpretation_1974"></a>F. Richards, Journal Of Molecular Biology <strong>82</strong>, 1 (1974).</p>
 </li>
 </ol>
 </div>
@@ -2326,7 +2421,7 @@ V_{ij}^{r}=\begin{cases}
 </tbody>
 </table>
 <div class="paragraph note">
-<p>Zhou et al. [<a href="#zhou_power_2012">6</a>] provided atom sizes calibrated to a hard sphere model</p>
+<p>Zhou et al. [<a href="#zhou_power_2012">2</a>] provided atom sizes calibrated to a hard sphere model</p>
 </div>
 </div>
 <div class="sect2">
@@ -2360,7 +2455,7 @@ V_{ij}^{r}=\begin{cases}
 </tbody>
 </table>
 <div class="paragraph note">
-<p>Richards et al. [<a href="#richards_interpretation_1974">7</a>] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9</p>
+<p>Richards et al. [<a href="#richards_interpretation_1974">3</a>] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9</p>
 </div>
 </div>
 <div class="sect2">
@@ -2496,7 +2591,7 @@ V_{ij}^{r}=\begin{cases}
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-03-03 13:40:13 EST
+Last updated 2016-03-03 19:21:21 EST
 </div>
 </div>
 <script type="text/x-mathjax-config">
