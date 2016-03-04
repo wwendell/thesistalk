@@ -57,6 +57,7 @@ image::AA-tricolor-2.png["", 70%, title="", caption="", align=center]
 
 [cols="<.^1a,^.^1a",grid="none",frame="none"]
 |===
+|
 [latexmath]
 ++++
 R_g = \sqrt{\frac{1}{N_p}\sum_i^{N_p} \left(\vec{r}_i - \left<\vec{r}\right> \right)^2}
