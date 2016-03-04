@@ -234,6 +234,35 @@ video::idps_UA.mp4[options="autoplay,loop", height=100%]
 
 == Results for α-Synuclein
 
+=== All-Atom Geometry
+
+[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
+|==================================
+| All-Atom
+| PDB Structures
+
+| image::ramachandranAA_converted.svg["", 100%, title="", caption="", align=center]
+| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
+|==================================
+
+[.note]
+Zhou et al. [cite:zhou_power_2012] provided atom sizes calibrated to a hard sphere model
+
+=== United-Atom Geometry
+
+[.unpadded]
+[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
+|==================================
+| United-Atom
+| PDB Structures
+
+| image::rama09_converted.svg["", 100%, title="", caption="", align=center]
+| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
+|==================================
+
+[.note]
+Richards et al. [cite:richards_interpretation_1974] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9
+
 === Radius of Gyration (stem:[R_{g}])
 
 [cols="^.^2a,<.^3a",grid="none",frame="none"]
@@ -915,35 +944,6 @@ V_{ij}^{r}=\begin{cases}
 ++++
 
 |==================================
-
-=== All-Atom Geometry
-
-[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
-|==================================
-| All-Atom
-| PDB Structures
-
-| image::ramachandranAA_converted.svg["", 100%, title="", caption="", align=center]
-| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
-|==================================
-
-[.note]
-Zhou et al. [cite:zhou_power_2012] provided atom sizes calibrated to a hard sphere model
-
-=== United-Atom Geometry
-
-[.unpadded]
-[cols="^.^a,^.^a",grid="none",frame="none",width=80%]
-|==================================
-| United-Atom
-| PDB Structures
-
-| image::rama09_converted.svg["", 100%, title="", caption="", align=center]
-| image::rama-Dunbrack-scatter_idpconvert.svg["", 85%, title="", caption="", align=center]
-|==================================
-
-[.note]
-Richards et al. [cite:richards_interpretation_1974] provided atom sizes calibrated to calculate packing densities; we multiplied by 0.9
 
 === Coarse-Grained Model Geometry
 
