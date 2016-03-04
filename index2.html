@@ -694,10 +694,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-center valign-middle"><div><div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Start with particles at some positions \(\vec{r}_i\), with velocities \(\vec{v}_i\)</p>
+<p>Start with particles at initial<br>
+positions \(\vec{r}_i\) and velocities \(\vec{v}_i\)</p>
 </li>
 <li>
 <p>Calculate the forces on each particle, \(\vec{f}_i\)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This is where the model comes in!</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Integrate numerically:</p>
@@ -711,7 +719,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<p>Repeat Step 3 for 3×10¹¹ times or so, and this follows Newton&#8217;s equations:</p>
+<p>Repeat Steps 2–3 for 3×10¹¹ times or so, and this follows Newton&#8217;s equations:</p>
 <div class="stemblock">
 <div class="content">
 \[\begin{align*}
@@ -752,7 +760,7 @@ Your browser does not support the video tag.
 <p>We integrated the Langevin equation, to simulate an implicit solvent:</p>
 <div class="stemblock">
 <div class="content">
-\[\frac{d\vec{v}_{i}}{dt}=-\frac{1}{m_{i}}\vec{\nabla}U-\gamma \vec{v}_{i}+\sqrt{\frac{2\gamma k_{B}T}{m_i}}\Gamma\left(t\right)\]
+\[\frac{d\vec{v}_{i}}{dt}=-\frac{1}{m_{i}}\vec{\nabla}_i U-\gamma \vec{v}_{i}+\sqrt{\frac{2\gamma k_{B}T}{m_i}}\Gamma\left(t\right)\]
 </div>
 </div>
 <div class="ulist">
@@ -765,9 +773,6 @@ Your browser does not support the video tag.
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Neighbor lists increase performance</p>
 </li>
 </ul>
 </div>
@@ -906,13 +911,13 @@ Your browser does not support the video tag.
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-middle">Electrostatics</th>
-<th class="tableblock halign-left valign-middle">Hydrophobicity</th>
+<th class="tableblock halign-left valign-top">Electrostatics</th>
+<th class="tableblock halign-left valign-top">Hydrophobicity</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><div><div class="stemblock">
+<td class="tableblock halign-left valign-top"><div><div class="stemblock">
 <div class="content">
 \[V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{-\frac{r_{ij}}{\ell}}\]
 </div>
@@ -930,7 +935,7 @@ Your browser does not support the video tag.
 </li>
 </ul>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="stemblock">
+<td class="tableblock halign-left valign-top"><div><div class="stemblock">
 <div class="content">
 \[V_{ij}^{a}	\propto\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}	R_{ij}&gt;2^{\frac{1}{6}}\sigma^{a}\]
 </div>
@@ -938,7 +943,7 @@ Your browser does not support the video tag.
 <div class="ulist">
 <ul>
 <li>
-<p>Attractive Lennard-Jones potential between \mathsf{C_{\alpha}} atoms</p>
+<p>Attractive Lennard-Jones potential between \(\mathsf{C_{\alpha}}\) atoms</p>
 </li>
 <li>
 <p>Relative hydrophobicities from tables</p>
@@ -1122,8 +1127,8 @@ Your browser does not support the video tag.
 <h3 id="_smfret_comparison_united_atom">smFRET Comparison (United-Atom)</h3>
 <table class="tableblock frame-none grid-none spread">
 <colgroup>
-<col style="width: 40%;">
-<col style="width: 60%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
@@ -1155,7 +1160,7 @@ Your browser does not support the video tag.
 <tr>
 <td class="tableblock halign-center valign-middle"><div><div class="stemblock">
 <div class="content">
-\[ET_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle\]
+\[F_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle\]
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
@@ -1167,8 +1172,8 @@ Your browser does not support the video tag.
 <h3 id="_smfret_comparison_coarse_grained">smFRET Comparison (Coarse-Grained)</h3>
 <table class="tableblock frame-none grid-none spread">
 <colgroup>
-<col style="width: 40%;">
-<col style="width: 60%;">
+<col style="width: 50%;">
+<col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
@@ -1200,7 +1205,7 @@ Your browser does not support the video tag.
 <tr>
 <td class="tableblock halign-center valign-middle"><div><div class="stemblock">
 <div class="content">
-\[ET_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle\]
+\[F_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle\]
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
@@ -1362,7 +1367,7 @@ Your browser does not support the video tag.
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-middle"><div><div class="paragraph small">
+<td class="tableblock halign-center valign-middle"><div><div class="paragraph note">
 <p>Absolute value of the electric charge per residue <em>Q</em><br>
 versus the hydrophobicity per residue <em>H</em></p>
 </div></div></td>
@@ -1373,47 +1378,14 @@ versus the hydrophobicity per residue <em>H</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Uversky et al. [<a href="#uversky_why_2000">4</a>] showed that charge and hydrophobicity were predictors of disordered proteins</p>
+<p>Uversky et al. [<a href="#uversky_why_2000">4</a>] showed that charge and hydrophobicity<br>
+were predictors of disordered proteins</p>
 </li>
 <li>
 <p>They drew a line at \(Q=2.785H-1.151\)</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_hydrophobicity_scales">Hydrophobicity Scales</h3>
-<table class="tableblock frame-none grid-none spread unpadded">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock">
-<div class="content">
-<img src="imgs/hphobscales.svg" alt="" width="100%">
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="ulist">
-<ul>
-<li>
-<p>Hydrophobicity is a complex interaction that does not map simply onto experimental measurements</p>
-</li>
-<li>
-<p>Several groups have devised separate scales for evaluating hydrophobicity</p>
-</li>
-</ul>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
-<p>Hydrophobicity per Residue</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div></div></td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="sect2">
 <h3 id="_smfret_comparisons">smFRET Comparisons</h3>
@@ -1456,51 +1428,6 @@ versus the hydrophobicity per residue <em>H</em></p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_hydrophobicity_models">Hydrophobicity Models</h3>
-<table class="tableblock frame-none grid-none spread">
-<colgroup>
-<col style="width: 14%;">
-<col style="width: 21%;">
-<col style="width: 28%;">
-<col style="width: 21%;">
-<col style="width: 14%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top" colspan="5"><div><div class="imageblock">
-<div class="content">
-<img src="imgs/hydromodels_converted.svg" alt="" width="60%">
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph small">
-<p><strong>Scales</strong><br>
-<strong>1-</strong> Kyte-Doolittle [<a href="#Kyte1982">5</a>]<br>
-<strong>2-</strong> Monera [<a href="#monera_relationship_1995">6</a>]<br>
-<strong>3-</strong> Average of 7 scales</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph small">
-<p><strong>Mixing Rule</strong><br>
-<strong>-1</strong> Arithmetic mean \(h_{ij}=\frac{h_{i}+h_{j}}{2}\)<br>
-<strong>-2</strong> Geometric mean \(h_{ij}=\sqrt{h_{i} h_{j}}\)<br>
-<strong>-3</strong> Maximum \(h_{ij}=\max(h_{i},h_{j})\)</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div><div class="paragraph small">
-<p><strong>Protein</strong><br>
-<font color="#E41A1C">Red</font>: αS<br>
-<font color="#377EB8">Blue</font>: βS<br>
-<font color="#4DAF4A">Green</font>: γS<br>
-<font color="#984EA3">Purple</font>: ProTα<br>
-<font color="#FF7F00">Orange</font>: MAPT</p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_radius_of_gyration_r_g_2">Radius of Gyration (\(R_g\))</h3>
 <table class="tableblock frame-none grid-none spread unpadded">
 <colgroup>
@@ -1536,16 +1463,26 @@ versus the hydrophobicity per residue <em>H</em></p>
 </div>
 <div class="sect2">
 <h3 id="_radius_of_gyration_r_g_scaling">Radius of Gyration (\(R_g\)) Scaling</h3>
-<table class="tableblock frame-none grid-none spread unpadded">
+<table class="tableblock frame-none grid-none spread">
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><div><div class="stemblock">
+<div class="content">
+\[R_g(N_p) = \sqrt{\frac{1}{N_p}\sum_i^{N_p} \left(\vec{r}_i - \left&lt;\vec{r}\right&gt; \right)^2}\]
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>\(R_g(n)\) is calculated over portions of the protien of length <em>n</em> and averaged over time</p>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><div><div class="imageblock">
 <div class="content">
-<img src="imgs/rgs_idps_converted.svg" alt="" width="100%">
+<img src="imgs/rgs_idps_converted.svg" alt="" width="90%">
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="imageblock">
@@ -1601,20 +1538,15 @@ versus the hydrophobicity per residue <em>H</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Hydrophobicity strongly affects the dynamics of disordered proteins</p>
-<div class="ulist">
-<ul>
-<li>
-<p>the specific scale used has little effect</p>
-</li>
-</ul>
-</div>
+<p>This model can extend to other disordered proteins</p>
 </li>
 <li>
-<p>This model can describe several disordered proteins</p>
+<p>Hydrophobicity plays a very strong role in IDP dynamics,<br>
+with electrostatics relevant to some proteins</p>
 </li>
 <li>
-<p>We can use the hydrophobicity and charge of residues to predict the overall dynamics of IDPs</p>
+<p>We can use the averabe hydrophobicity and charge of residues<br>
+to predict the overall dynamics of IDPs</p>
 </li>
 </ul>
 </div>
@@ -1628,23 +1560,13 @@ versus the hydrophobicity per residue <em>H</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Many possibilities, we&#8217;ll look at 3</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Nucleoid: The tightly packed DNA in the center of the cell</p>
+<p><em>Nucleoid:</em> The tightly packed DNA in the center of the cell</p>
 </li>
 <li>
-<p>Activity: Direct metabolic effects</p>
+<p><em>Activity:</em> Direct metabolic effects</p>
 </li>
 <li>
-<p>Caging: crowding and "gridlock"</p>
-</li>
-<li>
-<p><em>Polydispersity: particles of very different sizes</em></p>
-</li>
-</ul>
-</div>
+<p><em>Caging:</em> crowding and "gridlock"</p>
 </li>
 </ul>
 </div>
@@ -1700,12 +1622,25 @@ versus the hydrophobicity per residue <em>H</em></p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-top" colspan="2"><div><div class="paragraph">
-<p><em>Colors represent particle size</em></p>
+<td class="tableblock halign-center valign-top" colspan="2"><div><div class="paragraph note">
+<p>Colors represent particle size. Figure from Parry et al. [<a href="#parry_bacterial_2014">5</a>]</p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="ulist">
+<ul>
+<li>
+<p>None of these tracks is diffusive (slope 1)</p>
+</li>
+<li>
+<p>Small particles behave differently than large particles</p>
+</li>
+<li>
+<p>Metabolic activity has a significant effect on particle dynamics</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1717,6 +1652,12 @@ versus the hydrophobicity per residue <em>H</em></p>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top">Locations of GFP-μNS particles</th>
+<th class="tableblock halign-left valign-top"></th>
+</tr>
+</thead>
 <tbody>
 <tr>
 <td class="tableblock halign-center valign-top"><div><div class="imageblock">
@@ -1757,45 +1698,11 @@ versus the hydrophobicity per residue <em>H</em></p>
 </tr>
 </tbody>
 </table>
+<div class="paragraph note">
+<p>Data from Ivan Tsurovtsev, Jacobs-Wagner laboratory</p>
+</div>
 <div class="sect2">
 <h3 id="_models">Models</h3>
-<table class="tableblock frame-none grid-none spread">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock"><strong>Hard Nucleoid</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock">
-<div class="content">
-<img src="imgs/SCinners-tracks.svg" alt="" width="100%">
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Model the nucleoid as an excluded volume region, which particles can go around</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle" colspan="2"><p class="tableblock"><strong>Soft Nucleoid</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-middle"><div><div class="imageblock">
-<div class="content">
-<img src="imgs/SCforces-tracks.svg" alt="" width="100%">
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Derive a potential along the <em>x</em>-axis to "push" particles out of the nucleoid</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_models_2">Models</h3>
 <table class="tableblock frame-none grid-none spread">
 <colgroup>
 <col style="width: 50%;">
@@ -1992,7 +1899,7 @@ trapped to diffusive</p>
 <p>Activity: “the ability of individual units to move actively by gaining kinetic energy from the environment”</p>
 </li>
 <li>
-<p>Applied to flocking and herding of animals, swimming microorganisms, Janus particles [<a href="#howse_selfmotile_2007">7</a>], etc.</p>
+<p>Applied to flocking and herding of animals, swimming microorganisms, Janus particles [<a href="#howse_selfmotile_2007">6</a>], etc.</p>
 </li>
 </ul>
 </div>
@@ -2321,13 +2228,16 @@ Your browser does not support the video tag.
 <p><a id="uversky_why_2000"></a>V. N. Uversky, J. R. Gillespie, and A. L. Fink, Proteins: Structure, Function, And Bioinformatics <strong>41</strong>, 415 (2000).</p>
 </li>
 <li>
+<p><a id="parry_bacterial_2014"></a>B. R. Parry, I. V. Surovtsev, M. T. Cabeen, C. S. O&#8217;Hern, E. R. Dufresne, and C. Jacobs-Wagner, Cell <strong>156</strong>, 183 (2014).</p>
+</li>
+<li>
+<p><a id="howse_selfmotile_2007"></a>J. R. Howse, R. A. L. Jones, A. J. Ryan, T. Gough, R. Vafabakhsh, and R. Golestanian, Physical Review Letters <strong>99</strong>, 048102 (2007).</p>
+</li>
+<li>
 <p><a id="Kyte1982"></a>J. Kyte and R. F. Doolittle, Journal Of Molecular Biology <strong>157</strong>, 105 (1982).</p>
 </li>
 <li>
 <p><a id="monera_relationship_1995"></a>O. D. Monera, T. J. Sereda, N. E. Zhou, C. M. Kay, and R. S. Hodges, Journal Of Peptide Science <strong>1</strong>, 319 (1995).</p>
-</li>
-<li>
-<p><a id="howse_selfmotile_2007"></a>J. R. Howse, R. A. L. Jones, A. J. Ryan, T. Gough, R. Vafabakhsh, and R. Golestanian, Physical Review Letters <strong>99</strong>, 048102 (2007).</p>
 </li>
 </ol>
 </div>
@@ -2586,12 +2496,91 @@ V_{ij}^{r}=\begin{cases}
 </tbody>
 </table>
 </div>
+<div class="sect2">
+<h3 id="_hydrophobicity_scales">Hydrophobicity Scales</h3>
+<table class="tableblock frame-none grid-none spread unpadded">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="imageblock">
+<div class="content">
+<img src="imgs/hphobscales.svg" alt="" width="100%">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="ulist">
+<ul>
+<li>
+<p>Hydrophobicity is a complex interaction that does not map simply onto experimental measurements</p>
+</li>
+<li>
+<p>Several groups have devised separate scales for evaluating hydrophobicity</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><div><div class="paragraph">
+<p>Hydrophobicity per Residue</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_hydrophobicity_models">Hydrophobicity Models</h3>
+<table class="tableblock frame-none grid-none spread">
+<colgroup>
+<col style="width: 14%;">
+<col style="width: 21%;">
+<col style="width: 28%;">
+<col style="width: 21%;">
+<col style="width: 14%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top" colspan="5"><div><div class="imageblock">
+<div class="content">
+<img src="imgs/hydromodels_converted.svg" alt="" width="60%">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph small">
+<p><strong>Scales</strong><br>
+<strong>1-</strong> Kyte-Doolittle [<a href="#Kyte1982">7</a>]<br>
+<strong>2-</strong> Monera [<a href="#monera_relationship_1995">8</a>]<br>
+<strong>3-</strong> Average of 7 scales</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph small">
+<p><strong>Mixing Rule</strong><br>
+<strong>-1</strong> Arithmetic mean \(h_{ij}=\frac{h_{i}+h_{j}}{2}\)<br>
+<strong>-2</strong> Geometric mean \(h_{ij}=\sqrt{h_{i} h_{j}}\)<br>
+<strong>-3</strong> Maximum \(h_{ij}=\max(h_{i},h_{j})\)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph small">
+<p><strong>Protein</strong><br>
+<font color="#E41A1C">Red</font>: αS<br>
+<font color="#377EB8">Blue</font>: βS<br>
+<font color="#4DAF4A">Green</font>: γS<br>
+<font color="#984EA3">Purple</font>: ProTα<br>
+<font color="#FF7F00">Orange</font>: MAPT</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-03-03 19:21:21 EST
+Last updated 2016-03-03 20:51:25 EST
 </div>
 </div>
 <script type="text/x-mathjax-config">
