@@ -96,8 +96,10 @@ image::AA-tricolor-springs.svg["", 80%, title="", caption="", align=center]
 [cols="^.^2a,^.^1a",grid="none",frame="none"]
 |==================================
 |
-. Start with particles at some positions stem:[\vec{r}_i], with velocities stem:[\vec{v}_i]
+. Start with particles at initial +
+positions stem:[\vec{r}_i] and velocities stem:[\vec{v}_i]
 . Calculate the forces on each particle, stem:[\vec{f}_i]
+** This is where the model comes in!
 . Integrate numerically:
 +
 [latexmath]
@@ -107,7 +109,7 @@ image::AA-tricolor-springs.svg["", 80%, title="", caption="", align=center]
 \vec{v}_{i}(t + \delta t) & =\vec{v}_{i}(t) + \delta t\,\frac{1}{m_{i}}\vec{f}_{i}(t)
 \end{align*}
 ++++
-. Repeat Step 3 for 3×10¹¹ times or so, and this follows Newton's equations:
+. Repeat Steps 2–3 for 3×10¹¹ times or so, and this follows Newton's equations:
 +
 [latexmath]
 ++++
@@ -132,11 +134,10 @@ video::idps_UA.mp4[options="autoplay,loop", width=120%]
 +
 [latexmath]
 ++++
-\frac{d\vec{v}_{i}}{dt}=-\frac{1}{m_{i}}\vec{\nabla}U-\gamma \vec{v}_{i}+\sqrt{\frac{2\gamma k_{B}T}{m_i}}\Gamma\left(t\right)
+\frac{d\vec{v}_{i}}{dt}=-\frac{1}{m_{i}}\vec{\nabla}_i U-\gamma \vec{v}_{i}+\sqrt{\frac{2\gamma k_{B}T}{m_i}}\Gamma\left(t\right)
 ++++
 ** stem:[-\gamma \vec{v}_{i}] is a drag term
 ** stem:[\Gamma\left(t\right)] provides a random force
-* Neighbor lists increase performance
 
 === Building a Model
 
@@ -185,7 +186,7 @@ video::idps_UA.mp4[options="autoplay,loop", width=120%]
 
 === Building a Model: Long-Range Interactions
 
-[cols="2*<.^1a",grid="all",frame="none"]
+[cols="2*<.<1a",grid="all",frame="none"]
 |===
 | Electrostatics | Hydrophobicity
 
@@ -205,7 +206,7 @@ V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}
 V_{ij}^{a}	\propto\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}	R_{ij}>2^{\frac{1}{6}}\sigma^{a}
 ++++
 
-* Attractive Lennard-Jones potential between \mathsf{C_{\alpha}} atoms
+* Attractive Lennard-Jones potential between stem:[\mathsf{C_{\alpha}}] atoms
 * Relative hydrophobicities from tables
 * Overall energy scale *unknown*
 
@@ -278,7 +279,7 @@ image::smfret_curve3.gif["", 50%, title="", caption="", align=center]
 
 === smFRET Comparison (United-Atom)
 
-[cols="^.^2a,<.^3a",grid="none",frame="none"]
+[cols="^.^3a,<.^3a",grid="none",frame="none"]
 |====
 |
 image::ET_UA_dev_F.svg[]
@@ -293,14 +294,14 @@ image::ET_UA_dev_F.svg[]
 |
 [latexmath]
 ++++
-ET_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle
+F_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle
 ++++
 |
 |====
 
 === smFRET Comparison (Coarse-Grained)
 
-[cols="^.^2a,<.^3a",grid="none",frame="none"]
+[cols="^.^3a,<.^3a",grid="none",frame="none"]
 |====
 |
 image::ET_CG_dev_F.svg[]
@@ -315,7 +316,7 @@ image::ET_CG_dev_F.svg[]
 |
 [latexmath]
 ++++
-ET_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle
+F_{\textrm{eff}}=\left\langle \frac{1}{1+\left(\frac{R_{ij}}{R_{0}}\right)^{6}}\right\rangle
 ++++
 |
 |====
@@ -404,31 +405,16 @@ image::Rij-stddevs.svg["", 80%]
 +++<font color="#CAB2D6"><b>◻ Purple Squares</b></font>+++: Folded Proteins
 
 |
-[%hardbreaks,role="small"]
-Absolute value of the electric charge per residue _Q_
+[.note]
+Absolute value of the electric charge per residue _Q_ +
 versus the hydrophobicity per residue _H_
 |
 
 |====
 
-* Uversky et al. [cite:uversky_why_2000] showed that charge and hydrophobicity were predictors of disordered proteins
+* Uversky et al. [cite:uversky_why_2000] showed that charge and hydrophobicity +
+were predictors of disordered proteins
 * They drew a line at stem:[Q=2.785H-1.151]
-
-=== Hydrophobicity Scales
-
-[.unpadded]
-[cols="^.^1a,<.^1a",grid="none",frame="none"]
-|===
-|
-image::hphobscales.svg["", 100%]
-
-|
-* Hydrophobicity is a complex interaction that does not map simply onto experimental measurements
-* Several groups have devised separate scales for evaluating hydrophobicity
-
-| Hydrophobicity per Residue
-|
-|===
 
 === smFRET Comparisons
 
@@ -456,46 +442,6 @@ image::smFRET_5idps.svg["", 90%]
 
 |===
 
-=== Hydrophobicity Models
-
-////
-TODO: Maybe reshow the hydrophobicity potential?
-////
-
-[cols="2a,3a,4a,3a,2a",grid="none",frame="none"]
-|===
-5+^|
-image::hydromodels_converted.svg["", 60%]
-
-|
-|
-
-[%hardbreaks,role="small"]
-*Scales*
-*1-* Kyte-Doolittle [cite:Kyte1982]
-*2-* Monera [cite:monera_relationship_1995]
-*3-* Average of 7 scales
-
-|
-
-[%hardbreaks,role="small"]
-*Mixing Rule*
-*-1* Arithmetic mean stem:[h_{ij}=\frac{h_{i}+h_{j}}{2}]
-*-2* Geometric mean stem:[h_{ij}=\sqrt{h_{i} h_{j}}]
-*-3* Maximum stem:[h_{ij}=\max(h_{i},h_{j})]
-
-|
-
-[%hardbreaks,role="small"]
-*Protein*
-+++<font color="#E41A1C">Red</font>+++: αS
-+++<font color="#377EB8">Blue</font>+++: βS
-+++<font color="#4DAF4A">Green</font>+++: γS
-+++<font color="#984EA3">Purple</font>+++: ProTα
-+++<font color="#FF7F00">Orange</font>+++: MAPT
-|
-|===
-
 === Radius of Gyration (stem:[R_g])
 
 [.unpadded]
@@ -515,10 +461,17 @@ image::rgs_idps_converted.svg["", 100%]
 
 === Radius of Gyration (stem:[R_g]) Scaling
 
-[.unpadded]
 [cols="<.<1a,<.^1a",grid="none",frame="none"]
 |===
-| image::rgs_idps_converted.svg["", 100%]
+| 
+[latexmath]
+++++
+R_g(N_p) = \sqrt{\frac{1}{N_p}\sum_i^{N_p} \left(\vec{r}_i - \left<\vec{r}\right> \right)^2}
+++++
+|
+stem:[R_g(n)] is calculated over portions of the protien of length _n_ and averaged over time
+
+| image::rgs_idps_converted.svg["", 90%]
 | image::CG-Rg-loglog.svg["", 100%]
 
 ^| Radius of gyration of 5 proteins
@@ -539,21 +492,24 @@ image::rgs_idps_converted.svg["", 100%]
 
 === Conclusion
 
-* Hydrophobicity strongly affects the dynamics of disordered proteins
-** the specific scale used has little effect
-* This model can describe several disordered proteins
-* We can use the hydrophobicity and charge of residues to predict the overall dynamics of IDPs
+* This model can extend to other disordered proteins
+* Hydrophobicity plays a very strong role in IDP dynamics, +
+with electrostatics relevant to some proteins
+* We can use the averabe hydrophobicity and charge of residues +
+to predict the overall dynamics of IDPs
 
 == Chapter 3. Dynamics near the Glass Transition
 
 [discrete]
 ==== What are the significant factors in dynamics in the bacterial cytoplasm?
 
-* Many possibilities, we'll look at 3
-** Nucleoid: The tightly packed DNA in the center of the cell
-** Activity: Direct metabolic effects
-** Caging: crowding and "gridlock"
+* _Nucleoid:_ The tightly packed DNA in the center of the cell
+* _Activity:_ Direct metabolic effects
+* _Caging:_ crowding and "gridlock"
+
+////
 ** _Polydispersity: particles of very different sizes_
+////
 
 === Dynamics in Cells
 
@@ -576,8 +532,16 @@ image::parry_fig3AB.svg["", 90%]
 | Wild-type
 | Inactive metabolism
 
-2+| _Colors represent particle size_
+2+|
+
+[.note]
+Colors represent particle size. Figure from Parry et al. [cite:parry_bacterial_2014]
 |===
+
+* None of these tracks is diffusive (slope 1)
+* Small particles behave differently than large particles
+* Metabolic activity has a significant effect on particle dynamics
+
 
 ////
 == 3.1 Highly Bidisperse Packings
@@ -599,6 +563,7 @@ image::parry_fig3AB.svg["", 90%]
 [.padded]
 [cols="^2a,2a",grid="none",frame="none", width=80%]
 |===
+| Locations of GFP-μNS particles |
 
 |
 image::SCdata_hist2.svg["",100%, caption="", title="60 nm diameter"]
@@ -616,6 +581,10 @@ image::SCdata_hist8.svg["",100%, caption="", title="150 nm diameter"]
 
 |===
 
+[.note]
+Data from Ivan Tsurovtsev, Jacobs-Wagner laboratory
+
+////
 === Models
 
 [cols="^.^2a,<.^2a",grid="none",frame="none"]
@@ -629,6 +598,7 @@ image::SCdata_hist8.svg["",100%, caption="", title="150 nm diameter"]
 | Derive a potential along the _x_-axis to "push" particles out of the nucleoid
 
 |===
+////
 
 === Models
 
@@ -963,3 +933,61 @@ V_{ij}^{a}=\begin{cases}
 
 | image::LJ-attract-new.svg["", 100%, title="Hydrophobicity Potential", caption="", align=center]
 |==================================
+
+
+=== Hydrophobicity Scales
+
+[.unpadded]
+[cols="^.^1a,<.^1a",grid="none",frame="none"]
+|===
+|
+image::hphobscales.svg["", 100%]
+
+|
+* Hydrophobicity is a complex interaction that does not map simply onto experimental measurements
+* Several groups have devised separate scales for evaluating hydrophobicity
+
+| Hydrophobicity per Residue
+|
+|===
+
+
+=== Hydrophobicity Models
+
+////
+TODO: Maybe reshow the hydrophobicity potential?
+////
+
+[cols="2a,3a,4a,3a,2a",grid="none",frame="none"]
+|===
+5+^|
+image::hydromodels_converted.svg["", 60%]
+
+|
+|
+
+[%hardbreaks,role="small"]
+*Scales*
+*1-* Kyte-Doolittle [cite:Kyte1982]
+*2-* Monera [cite:monera_relationship_1995]
+*3-* Average of 7 scales
+
+|
+
+[%hardbreaks,role="small"]
+*Mixing Rule*
+*-1* Arithmetic mean stem:[h_{ij}=\frac{h_{i}+h_{j}}{2}]
+*-2* Geometric mean stem:[h_{ij}=\sqrt{h_{i} h_{j}}]
+*-3* Maximum stem:[h_{ij}=\max(h_{i},h_{j})]
+
+|
+
+[%hardbreaks,role="small"]
+*Protein*
++++<font color="#E41A1C">Red</font>+++: αS
++++<font color="#377EB8">Blue</font>+++: βS
++++<font color="#4DAF4A">Green</font>+++: γS
++++<font color="#984EA3">Purple</font>+++: ProTα
++++<font color="#FF7F00">Orange</font>+++: MAPT
+|
+|===

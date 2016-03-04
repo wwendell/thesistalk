@@ -44,12 +44,14 @@
   margin-top: 1.6em;
 }
 
-.note {
+.note p,
+p.note {
   font-style: italic;
   font-size: 0.8em;
 }
 
-.alert p {
+.alert p,
+p.alert {
   color: #ed1e24;
 }
 
