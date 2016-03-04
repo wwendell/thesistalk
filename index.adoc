@@ -152,26 +152,68 @@ video::idps_UA.mp4[options="autoplay,loop", width=120%]
 | image::aS-CG-visual_converted.svg["", 100%, title="", caption="", align=center]
 |==================================
 
-=== Building a Model
+=== Building a Model: Geometry
 
-
-
-[.unpadded]
-[cols="^.^2a,^.^1a",grid="none",frame="none"]
+[cols="5*<.^1a",grid="all",frame="none"]
 |==================================
-|
-* Molecular Geometry
-** Bond lengths, bond angles, and a dihedral angle
-* Sterics
-** Atoms can't overlap
-* Electrostatics
-** Some residues are charged
-* Hydrophobicity
-** Some residues do not bind with water
+| 2+s| All-Atom and United-Atom 2+s| Coarse-Grained
+| | _Potential_ | _Parameters_ | _Potential_ | _Parameters_
 
+| Bond Lengths and Angles
+| Stiff Spring
+| PDB Data
+| Soft Spring
+| AA and UA probabilities
+
+| Dihedral Angles
+| ω only
+| ω = π
+| stem:[\sum a_{n}\cos^{n}\phi]
+| AA and UA probabilities
+
+| Atom / Bead Sizes
+| Lennard-Jones Repulsive (WCA)
+| Refs. [cite:zhou_power_2012] and [cite:richards_interpretation_1974]
+| Lennard-Jones Repulsive (WCA)
+| stem:[\sigma=4.8\,Å], from stem:[R_{g}] of residues
+
+////
 | image::aS-AA-visual_converted.svg["", 100%, title="", caption="", align=center]
+////
 
 |==================================
+
+=== Building a Model: Long-Range Interactions
+
+[cols="2*<.^1a",grid="all",frame="none"]
+|===
+| Electrostatics | Hydrophobicity
+
+|
+[latexmath]
+++++
+V_{ij}^{\textrm{es}}=\frac{1}{4\pi\epsilon_{0}\epsilon}\frac{q_{i}q_{j}}{r_{ij}}e^{-\frac{r_{ij}}{\ell}}
+++++
+
+* Coulomb interaction
+* Debye screening
+* Uses partial charges
+
+|
+[latexmath]
+++++
+V_{ij}^{a}	\propto\left(\frac{\sigma^{a}}{R_{ij}}\right)^{12}-\left(\frac{\sigma^{a}}{R_{ij}}\right)^{6}	R_{ij}>2^{\frac{1}{6}}\sigma^{a}
+++++
+
+* Attractive Lennard-Jones potential between \mathsf{C_{\alpha}} atoms
+* Relative hydrophobicities from tables
+* Overall energy scale *unknown*
+
+[.fragment.alert]
+* Define stem:[\alpha\equiv\frac{\textsf{Hydrophobicity Energy}}{\textsf{Electrostatics Energy}}]
+** a unitless free parameter
+
+|===
 
 === Full Model
 
@@ -798,6 +840,7 @@ Unrelaxed simulations are shown with dotted lines.
 
 === Acknowledgments
 
+* My Committee!
 * Corey, Mark, and the O'Hern Lab
 * Our collaborators from the Rhoades lab and the Jacobs-Wagner lab
 * The many great teachers I have had
@@ -808,10 +851,6 @@ Unrelaxed simulations are shown with dotted lines.
 [bibliography]
 
 == Extra Slides
-
-
-
-
 
 === All-Atom and United-Atom Geometry
 

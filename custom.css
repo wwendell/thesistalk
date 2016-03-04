@@ -49,6 +49,10 @@
   font-size: 0.8em;
 }
 
+.alert p {
+  color: #ed1e24;
+}
+
 .canceled {
   text-decoration: line-through;
 }
