@@ -22,7 +22,8 @@ Wendell Smith
 
 - The Dynamics of α-Synuclein and Disordered Proteins
 ** Can we model a disordered protein without biasing it towards folding?
-** Can we use this model to understand their dynamics?
+** Compare model with smFRET experiments
+** Predict dynamics from model
 - Dynamics near the Glass Transition
 ** What are the significant factors in dynamics in the bacterial cytoplasm?
 ** Nucleoid effects, activity, crowding
@@ -379,7 +380,7 @@ image::Rij-stddevs.svg["", 80%]
 === Conclusion
 
 
-* We can use a simple, 5-term model to study the conformational dynamics of α-synuclein calibrated to experiments
+* We can use a simple, 2-term model to study the conformational dynamics of α-synuclein calibrated to experiments
 * This model accurately predicts experimental results
 * The structure of α-synuclein is intermediate between a random walk and a collapsed globule
 
@@ -805,7 +806,7 @@ Unrelaxed simulations are shown with dotted lines.
 
 == Summary
 
-* The dynamics of disordered proteins can be accurately modeled with a simple 5-term potential calibrated to experimental data
+* The dynamics of disordered proteins can be accurately modeled with a simple 2-term potential calibrated to experimental data
 * The complicated dynamics inside cells observed in experiments may be linked to the presence of the nucleoid, polydispersity, and crowding (caging) behavior, but active matter is an unlikely candidate
 
 === Acknowledgments
